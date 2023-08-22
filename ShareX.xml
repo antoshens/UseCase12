@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShareX</name>
+    </assembly>
+    <members>
+        <member name="T:ShareX.WatchFolderManager">
+            <summary>
+            Class <c>WatchFolderManager</c> models an entry point to manage the folders for the screeenshots.
+            </summary>
+        </member>
+        <member name="P:ShareX.WatchFolderManager.WatchFolders">
+            <summary>
+            The property <c>WatchFolders</c> represents a list of already registered WatchFolders.
+            </summary>
+        </member>
+		<member name="M:ShareX.WatchFolderManager.UpdateWatchFolders">
+            <summary>
+            Updates WatchFolders <see cref="WatchFolders"/> list with a new instances from <c>Program.DefaultTaskSettings.WatchFolderList</c>.
+            and <c>Program.HotkeysConfig.Hotkeys</c> lists.
+            </summary>
+			<example>For example:
+			<code>
+			WatchFolderManager manager = new WatchFolderManager();
+			manager.UpdateWatchFolders(settings);
+			</code>
+        </member>
+        <member name="M:ShareX.WatchFolderManager.AddWatchFolder(ShareX.WatchFolderSettings,ShareX.TaskSettings)">
+            <summary>
+            Registers new <c>WatchFolder</c> instance.
+            </summary>
+            <param> <c>watchFolderSetting</c> is the WatchFolder properties to add.</param>
+            <param> <c>taskSettings</c> is the settings that can be applied for the files in the folder.</param>
+        </member>
+		<member name="M:ShareX.WatchFolderManager.RemoveWatchFolder(ShareX.WatchFolderSettings)">
+            <summary>
+            Removes the given WatchFolder from the list if it exists. <see cref="P:ShareX.WatchFolderManager.WatchFolders"/>
+            </summary>
+			<example>For example:
+			<code>
+			WatchFolderManager manager = new WatchFolderManager();
+			WatchFolderSettings settings = new WatchFolderSettings {FolderPath = "./MyFolder"};
+			manager.RemoveWatchFolder(settings);
+			</code>
+			<param><c>watchFolderSetting</c> is the WatchFolder properties to remove.</param>
+        </member>
+		<member name="M:ShareX.WatchFolderManager.UpdateWatchFolderState(ShareX.WatchFolderSettings)">
+            <summary>
+            Updates the settings for the WatchFolder.
+            </summary>
+			<example>For example:
+			<code>
+			WatchFolderManager manager = new WatchFolderManager();
+			WatchFolderSettings settings = new WatchFolderSettings {FolderPath = "./MyFolder"};
+			manager.UpdateWatchFolderState(settings);
+			</code>
+			<param><c>watchFolderSetting</c> is the WatchFolder properties to update.</param>
+        </member>
+        <member name="M:ShareX.WatchFolderManager.UnregisterAllWatchFolders()">
+            <summary>
+            Unregisters all WatchFolders in the list. <see cref="P:ShareX.WatchFolderManager.WatchFolders"/>
+            </summary>
+			<example>For example:
+			<code>
+			WatchFolderManager manager = new WatchFolderManager();
+			manager.UnregisterAllWatchFolders();
+			</code>
+			<param><c>watchFolderSetting</c> is the WatchFolder properties to update.</param>
+        </member>
+        <member name="M:ShareX.WatchFolderManager.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            Unregisters all WatchFolders. <see cref="M:ShareX.WatchFolderManager.UnregisterAllWatchFolders"/>
+            </summary>
+        </member>
+    </members>
+</doc>
